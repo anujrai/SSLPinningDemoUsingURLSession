@@ -15,8 +15,6 @@
 		757BB84123DC89CD008CF013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757BB83F23DC89CD008CF013 /* LaunchScreen.storyboard */; };
 		757BB84C23DC89CD008CF013 /* SSLPinningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB84B23DC89CD008CF013 /* SSLPinningTests.swift */; };
 		757BB85723DC89CD008CF013 /* SSLPinningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB85623DC89CD008CF013 /* SSLPinningUITests.swift */; };
-		757BB86523DCE2F5008CF013 /* google.cer in Resources */ = {isa = PBXBuildFile; fileRef = 757BB86423DCE2F5008CF013 /* google.cer */; };
-		757BB86623DCE2F5008CF013 /* google.cer in Resources */ = {isa = PBXBuildFile; fileRef = 757BB86423DCE2F5008CF013 /* google.cer */; };
 		757BB86823DCE36A008CF013 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB86723DCE36A008CF013 /* ServiceManager.swift */; };
 		757BB86923DCE36A008CF013 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB86723DCE36A008CF013 /* ServiceManager.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +51,6 @@
 		757BB85223DC89CD008CF013 /* SSLPinningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSLPinningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		757BB85623DC89CD008CF013 /* SSLPinningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningUITests.swift; sourceTree = "<group>"; };
 		757BB85823DC89CD008CF013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		757BB86423DCE2F5008CF013 /* google.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = google.cer; sourceTree = "<group>"; };
 		757BB86723DCE36A008CF013 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +102,6 @@
 		757BB83323DC89CB008CF013 /* SSLPinning */ = {
 			isa = PBXGroup;
 			children = (
-				757BB86423DCE2F5008CF013 /* google.cer */,
 				757BB83423DC89CB008CF013 /* AppDelegate.swift */,
 				757BB83623DC89CB008CF013 /* SceneDelegate.swift */,
 				757BB83823DC89CB008CF013 /* ViewController.swift */,
@@ -242,7 +238,6 @@
 			files = (
 				757BB84123DC89CD008CF013 /* LaunchScreen.storyboard in Resources */,
 				757BB83E23DC89CD008CF013 /* Assets.xcassets in Resources */,
-				757BB86523DCE2F5008CF013 /* google.cer in Resources */,
 				757BB83C23DC89CB008CF013 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +246,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757BB86623DCE2F5008CF013 /* google.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
