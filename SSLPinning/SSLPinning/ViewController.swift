@@ -10,12 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
         guard let url = URL(string: "https://www.google.co.uk") else { return }
-        ServiceManager().callAPI(withURL: url)
+        ServiceManager().callAPI(withURL: url, isCertificatePinning: false)
     }
-
 
 }
 
