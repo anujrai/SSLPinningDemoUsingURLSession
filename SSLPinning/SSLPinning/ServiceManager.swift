@@ -100,12 +100,15 @@ extension ServiceManager: URLSessionDelegate {
             }
         } else {
             if let serverCertificate = SecTrustGetCertificateAtIndex(serverTrust, 0) {
+                // Server public key
                 let serverPublicKey = SecCertificateCopyKey(serverCertificate)
                 let serverPublicKeyData = SecKeyCopyExternalRepresentation(serverPublicKey!, nil )!
                 let data:Data = serverPublicKeyData as Data
-                let shData = sha256(data: data)
+                // Server Hash key
+                let serverHashKey = sha256(data: data)
+                // Local Hash Key
                 let publickKeyLocal = type(of: self).publicKeyHash
-                if (shData == publickKeyLocal) {
+                if (serverHashKey == publickKeyLocal) {
                     // Success! This is our server
                     print("Public key pinning is successfully completed")
                     completionHandler(.useCredential, URLCredential(trust:serverTrust))
