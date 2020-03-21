@@ -16,7 +16,7 @@ This is iOS application which is basically created for ssl pinning using URLSess
 
 ## Screenshots
 ![Certificate Pinning](./img/CertificatePinning.png?raw=true "2. Home Screen")
-![Public Pinning](./img/PublicKeyPinning=true "3. Home Screen")
+![Public Pinning](./img/PublicKeyPinning.png?raw=true "3. Home Screen")
 
 ## Technologies
 * Platform iOS, iPad
