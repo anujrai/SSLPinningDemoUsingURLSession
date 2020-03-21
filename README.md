@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/anujrai/SSLPinningDemoUsingURLSession/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# SSLPinning
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Table of contents
+* [General info](#general-info)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
-### Markdown
+## General info
+This is iOS application which is basically created for ssl pinning using URLSession. In this both type of pinning is implemented (Certificate & Public Key)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Screenshots
+![Certificate Pinning](./img/CertificatePinning.png?raw=true "2. Home Screen")
+![Public Pinning](./img/PublicKeyPinning=true "3. Home Screen")
 
-```markdown
-Syntax highlighted code block
+## Technologies
+* Platform iOS, iPad
+* IDE - Xcode11
+* Language - Swift 5.0 
 
-# Header 1
-## Header 2
-### Header 3
+## Setup
+Ceckout the repository and open it in Xocde. Build and run in xcode.
 
-- Bulleted
-- List
+## Features
+List of features ready 
+* Certificate Pinning
+* Public key pinning
 
-1. Numbered
-2. List
+## Status
+Project is: Done
 
-**Bold** and _Italic_ and `Code` text
+## Inspiration
+Done as a sample project.
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anujrai/SSLPinningDemoUsingURLSession/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Contact
+Created by [@anujrai](anuj.rai2489@gmail.com) - feel free to contact me!
