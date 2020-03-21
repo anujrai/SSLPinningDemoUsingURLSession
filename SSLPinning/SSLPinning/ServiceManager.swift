@@ -22,42 +22,43 @@ class ServiceManager: NSObject {
     private var isCertificatePinning: Bool = false
     
     private func sha256(data : Data) -> String {
-           var keyWithHeader = Data(rsa2048Asn1Header)
-           keyWithHeader.append(data)
-           var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
-
-           keyWithHeader.withUnsafeBytes {
-               _ = CC_SHA256($0, CC_LONG(keyWithHeader.count), &hash)
-           }
-
-
-           return Data(hash).base64EncodedString()
-       }
-    
-    private func getSSLCertificate() -> [SecCertificate] {
-        guard let bundle = Bundle.main.url(forResource: "google", withExtension: "cer") else {
-            return []
+        var keyWithHeader = Data(rsa2048Asn1Header)
+        keyWithHeader.append(data)
+        var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
+        
+        keyWithHeader.withUnsafeBytes {
+            _ = CC_SHA256($0, CC_LONG(keyWithHeader.count), &hash)
         }
         
-        let certificateAsCfData = try! Data(contentsOf: bundle) as CFData
-        guard let sslCertificate = SecCertificateCreateWithData(nil, certificateAsCfData) else {
-            return []
-        }
-        return [sslCertificate]
+        
+        return Data(hash).base64EncodedString()
     }
-    func callAPI(withURL url: URL, isCertificatePinning: Bool) {
+    
+    func callAPI(withURL url: URL, isCertificatePinning: Bool, completion: @escaping (String) -> Void) {
         let session = URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
         self.isCertificatePinning = isCertificatePinning
+        var responseMessage = ""
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                       print("error: \(error!.localizedDescription): \(error!)")
-                   } else if data != nil {
+                print("error: \(error!.localizedDescription): \(error!)")
+                responseMessage = "Pinning failed"
+            } else if data != nil {
                 let str = String(decoding: data!, as: UTF8.self)
-                                           print("Received data:\n\(str)")
-                   }
+                print("Received data:\n\(str)")
+                if isCertificatePinning {
+                    responseMessage = "Certificate pinning is successfully completed"
+                }else {
+                    responseMessage = "Public key pinning is successfully completed"
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(responseMessage)
+            }
+            
         }
         task.resume()
-
+        
     }
     
 }
@@ -73,7 +74,7 @@ extension ServiceManager: URLSessionDelegate {
         
         if self.isCertificatePinning {
             
-           
+            
             let certificate = SecTrustGetCertificateAtIndex(serverTrust, 0)
             // SSL Policies for domain name check
             let policy = NSMutableArray()
